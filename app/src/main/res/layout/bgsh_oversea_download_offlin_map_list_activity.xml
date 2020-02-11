@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+
+    >
+
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/oversea_offline_map_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <RelativeLayout
+        android:id="@+id/dialog_view"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <FrameLayout
+            android:id="@+id/dialog_view_back"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:alpha="0.5"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:minHeight="175dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:background="@color/white"
+
+            >
+            <TextView
+                android:id="@+id/dialog_view_view_map"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:gravity="center"
+                android:text="@string/bgsh_app_offline_pop_view_title"
+                android:textSize="18sp"
+                android:textColor="#1C84E5"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:background="@color/white"
+                android:paddingStart="15dp"
+                android:paddingLeft="15dp"
+                android:paddingEnd="15dp"
+                android:paddingRight="15dp"
+                />
+
+            <TextView
+                android:id="@+id/dialog_view_delete"
+                android:layout_width="match_parent"
+                android:layout_height="54.5dp"
+                android:text="@string/bgsh_app_offline_pop_view_del"
+                android:textSize="@dimen/textsize_18sp"
+                android:textColor="@color/wh_base_ui_theme_normal_red"
+                android:gravity="center"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="@color/black"/>
+            <TextView
+                android:id="@+id/dialog_view_cancel"
+                android:layout_width="match_parent"
+                android:layout_height="54.5dp"
+                android:text="@string/bgsh_app_offline_pop_view_cancel"
+                android:gravity="center"
+                android:textSize="@dimen/textsize_18sp"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

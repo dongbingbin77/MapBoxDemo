@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MapBoxDemo</string>
+    <string name="bgsh_app_offline_map_title">Offline Maps</string>
+    <string name="bgsh_app_offline_map_downloading">Downloading</string>
+    <string name="bgsh_app_offline_map_paused">Paused</string>
+
+    <string name="bgsh_app_offline_pop_view_title">View Map</string>
+    <string name="bgsh_app_offline_pop_view_del">Delete</string>
+    <string name="bgsh_app_offline_pop_view_cancel">Cancel</string>
+    <string name="bgsh_app_offline_current_city">(Current City)</string>
+</resources>
