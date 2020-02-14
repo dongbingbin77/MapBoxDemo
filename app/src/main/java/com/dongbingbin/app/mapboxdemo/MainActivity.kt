@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.dongbingbin.app.mapboxdemo.mapbox.DownloadCallback
 import com.dongbingbin.app.mapboxdemo.mapbox.MapBoxInitProxy
+import com.hotelvp.jjzx.activity.controller.member.map.OverseaDownloadOfflineMapListActivity
 import com.mapbox.mapboxsdk.offline.OfflineRegion
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -36,27 +37,37 @@ class MainActivity : AppCompatActivity() {
         }
 
         delete_btn.setOnClickListener {
-            if(MapBoxInitProxy.offlineRegion1!=null) {
-                start_btn.isEnabled = false
-                pause_btn.isEnabled = false
-                MapBoxInitProxy.offlineRegion1?.delete(object :
-                    OfflineRegion.OfflineRegionDeleteCallback {
-                    override fun onDelete() {
-                        start_btn.isEnabled = true
-                        pause_btn.isEnabled = true
-                        MapBoxInitProxy.offlineRegion1 = null
-                    }
+//            if(MapBoxInitProxy.offlineRegion1!=null) {
+//                start_btn.isEnabled = false
+//                pause_btn.isEnabled = false
+//                MapBoxInitProxy.offlineRegion1?.delete(object :
+//                    OfflineRegion.OfflineRegionDeleteCallback {
+//                    override fun onDelete() {
+//                        start_btn.isEnabled = true
+//                        pause_btn.isEnabled = true
+//                        MapBoxInitProxy.offlineRegion1 = null
+//                    }
+//
+//                    override fun onError(error: String?) {
+//                    }
+//                })
+//            }
+            MapBoxInitProxy.deleteAll(this@MainActivity,object:MapBoxInitProxy.OnDeleteCallback{
+                override fun onStart() {
+                    start_btn.isEnabled = false
+                    pause_btn.isEnabled = false
+                }
 
-                    override fun onError(error: String?) {
-                    }
-                })
-            }
-            //MapBoxInitProxy.deleteAll(this@MainActivity)
+                override fun onEnd() {
+                    start_btn.isEnabled = true
+                    pause_btn.isEnabled = true
+                }
+            })
         }
 
         go_to_offline_map.setOnClickListener {
-            throw Exception("2292929")
-//            OverseaDownloadOfflineMapListActivity.entryActivityContext(this@MainActivity)
+//            throw Exception("2292929")
+            OverseaDownloadOfflineMapListActivity.entryActivityContext(this@MainActivity)
         }
     }
 

@@ -195,16 +195,23 @@ public class MapBoxInitProxy {
     }
 
 
-    public static void deleteAll(Context context){
+    public static void deleteAll(Context context,OnDeleteCallback onDeleteCallback){
+
         OfflineManager offlineManager = OfflineManager.getInstance(context);
         offlineManager.listOfflineRegions(new OfflineManager.ListOfflineRegionsCallback() {
             @Override
             public void onList(OfflineRegion[] offlineRegions) {
                 for(OfflineRegion region : offlineRegions){
+                    if(onDeleteCallback!=null){
+                        onDeleteCallback.onStart();
+                    }
                     region.delete(new OfflineRegion.OfflineRegionDeleteCallback() {
                         @Override
                         public void onDelete() {
-
+                            offlineRegion1 = null;
+                            if(onDeleteCallback!=null){
+                                onDeleteCallback.onEnd();
+                            }
                         }
 
                         @Override
@@ -221,6 +228,11 @@ public class MapBoxInitProxy {
             }
         });
 
-        offlineRegion1 = null;
+
+    }
+
+    public interface OnDeleteCallback{
+        void onStart();
+        void onEnd();
     }
 }
